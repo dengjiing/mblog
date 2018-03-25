@@ -13,13 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+#2018.3.24
+# from django.contrib import admin
+# from django.urls import path
+# from django.conf.urls import include,url
+# from mainsite.views import homepage
+#
+# urlpatterns = [
+#     url(r'admin/', admin.site.urls),
+#     url(r'^$',homepage),
+# 	#url(r'^admin/',include(admin.site.urls)),
+# ]
+
+
+#显示文章名字，单击文章名字进入另外一个界面详细显示文章
+#from django.urls import path
 from django.conf.urls import include,url
-from mainsite.views import homepage
+from django.contrib import admin
+from mainsite.views import homepage,showpost
 
 urlpatterns = [
-    url(r'admin/', admin.site.urls),
     url(r'^$',homepage),
-	#url(r'^admin/',include(admin.site.urls)),
+    url(r'^post/(\w+)$',showpost),
+    url(r'admin/', admin.site.urls),
+    #url(r'^admin/',include(admin.site.urls)),
+
 ]
