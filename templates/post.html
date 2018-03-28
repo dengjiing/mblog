@@ -1,6 +1,7 @@
 <!--加入模板，继承base.html的三个区块-->
 <!--title headmessage content-->
 {% extends 'base.html' %}
+{% load markdown_deux_tags %}
 {% block title %}{{post.title}}-文学天地{% endblock %}
 {% block headmessage %}
     <h3 style='font-family:微软雅黑;'>{{post.title}}</h3>
@@ -8,7 +9,7 @@
 {% endblock %}
 {% block content %}
     <p style='font-family:微软雅黑;font-size:12pt;letter-spacing:2pt;'>
-        {{post.body}}</a>
+        {{post.body | markdown }}</a>
     </p>
 {% endblock %}
 
